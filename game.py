@@ -53,7 +53,7 @@ def plank_right():
     plank.right(3)
     theta = theta-3
     with open("train.txt", 'a') as f:
-        f.write(str(ball.xcor())+ " " +str(ball.ycor())+ " "+str(theta) + " " + str(u) + " " + str(v) + " " + "1" + "\n")
+        f.write(str(ball.xcor())+ "," +str(ball.ycor())+ ","+str(theta) + "," + str(u) + "," + str(v) + "," + "1" + "\n")
     f.close()
 
 
@@ -62,7 +62,7 @@ def plank_left():
     plank.left(3)
     theta=theta+3
     with open("train.txt", 'a') as f:
-        f.write(str(ball.xcor())+" "+str(ball.ycor())+" "+str(theta) + " " + str(u) + " " + str(v) + " " + "-1" + "\n")
+        f.write(str(ball.xcor())+","+str(ball.ycor())+","+str(theta) + "," + str(u) + "," + str(v) + "," + "-1" + "\n")
     f.close()
 
 
