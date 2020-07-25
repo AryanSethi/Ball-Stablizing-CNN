@@ -29,11 +29,14 @@ ball.dy=0
 
 theta=0
 u=0
-g=0.001
+g=0.0005
 k= pi/180
 
+
+
+
 def ball_position():
-    global theta,vel,g,u
+    global theta,vel,g,u,v
     x = ball.xcor()
     y = ball.ycor()
     g_new=g*sin(theta*k)
@@ -49,14 +52,20 @@ def plank_right():
     global theta
     plank.right(3)
     theta = theta-3
-    print(theta)
+    with open("train.txt", 'a') as f:
+        f.write(str(ball.xcor())+ " " +str(ball.ycor())+ " "+str(theta) + " " + str(u) + " " + str(v) + " " + "1" + "\n")
+    f.close()
 
 
 def plank_left():
-    global theta
+    global theta,f
     plank.left(3)
     theta=theta+3
-    print(theta)
+    with open("train.txt", 'a') as f:
+        f.write(str(ball.xcor())+" "+str(ball.ycor())+" "+str(theta) + " " + str(u) + " " + str(v) + " " + "-1" + "\n")
+    f.close()
+
+
 
 
 def quit_game():
@@ -70,7 +79,9 @@ wn.onkeypress(plank_right,"Right")
 wn.onkeypress(quit_game,"q")
 
 
+
 while running:
     wn.update()
     ball_position()
+
 
